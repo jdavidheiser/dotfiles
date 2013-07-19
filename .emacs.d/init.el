@@ -18,7 +18,6 @@
 (require 'compile)
 (ido-mode t)
 (menu-bar-mode -1)
-(normal-erase-is-backspace-mode 1)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (setq column-number-mode t)
@@ -75,3 +74,11 @@
 (require 'jade-mode)    
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+
+;; ------------------------
+;; -- Make tabs not suck --
+;; ------------------------
+
+(setq-default tab-width 3)
+;; remap return to newline-and-indent, which makes it match existing indent when you hit return
+(define-key global-map (kbd "RET") 'newline-and-indent)
